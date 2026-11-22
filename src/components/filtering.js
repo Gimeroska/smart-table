@@ -29,6 +29,10 @@ export function initFiltering(elements, indexes) {
 		  state[field] = "";                               // и соответствующее поле в state
 		}
 		// @todo: #4.5 — отфильтровать данные используя компаратор
+		if (state.totalFrom !== undefined || state.totalTo !== undefined) {
+			state.total = [state.totalFrom, state.totalTo];
+		}
+
     return data.filter(row => compare(row, state));
 	};
 }
